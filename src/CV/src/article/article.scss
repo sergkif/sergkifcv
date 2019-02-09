@@ -1,0 +1,20 @@
+.article {
+    padding: 10px;
+    background: rgba(0, 0, 255, 0.123);
+
+    &__title {
+
+    }
+
+    &__content {
+
+    }
+
+    &__image {
+        display: none;
+
+        &_visible {
+            display: block;
+        }
+    }
+}

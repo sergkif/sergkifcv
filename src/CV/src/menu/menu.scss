@@ -1,0 +1,11 @@
+.menu {
+    display: block;
+    padding: 10px;
+    background: rgba(0, 128, 0, 0.233);
+
+    &__item{
+        &_invisible {
+            display: none;
+        }
+    }
+}

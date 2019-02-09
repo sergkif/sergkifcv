@@ -1,0 +1,121 @@
+.header {
+  padding: 10px;
+  background: rgba(255, 0, 0, 0.233); }
+
+.menu {
+  display: block;
+  padding: 10px;
+  background: rgba(0, 128, 0, 0.233); }
+  .menu__item_invisible {
+    display: none; }
+
+.article {
+  padding: 10px;
+  background: rgba(0, 0, 255, 0.123); }
+  .article__image {
+    display: none; }
+    .article__image_visible {
+      display: block; }
+
+.footer {
+  padding: 10px;
+  background: rgba(255, 255, 0, 0.336); }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.6); }
+  .overlay__closed {
+    display: none; }
+
+.modal {
+  display: block;
+  width: 600px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.308); }
+  .modal__closeButton {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 20px;
+    border: 0;
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    font-size: 1.3rem; }
+  .modal__guts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 93%;
+    height: 100%;
+    overflow: auto;
+    padding: 50px 50px 20px 20px; }
+    .modal__guts_title {
+      text-align: center; }
+    .modal__guts_inputTitle {
+      width: 100%;
+      text-align: center; }
+    .modal__guts_content {
+      text-align: center; }
+    .modal__guts_inputContent {
+      width: 100%;
+      height: 60%;
+      text-align: center; }
+    .modal__guts_submit {
+      margin-top: 5px;
+      margin-left: 47%; }
+  .modal__closed {
+    display: none; }
+
+.openButton {
+  border: 0;
+  background: lightgreen;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px; }
+
+.grid {
+  display: grid;
+  grid-template-areas: "header" "menu"  "article" "footer";
+  grid-template-rows: 1fr 1fr 7fr 1fr;
+  grid-gap: 10px;
+  height: 100vh;
+  margin: 0; }
+  .grid__footer {
+    grid-area: footer; }
+  .grid__article {
+    grid-area: article; }
+  .grid__menu {
+    grid-area: menu; }
+  .grid__header {
+    grid-area: header; }
+
+@media (min-width: 800px) {
+  .grid {
+    grid-template-areas: "header header" "menu article" "footer footer";
+    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-columns: 2fr 8fr; }
+    .grid__footer {
+      grid-area: footer; }
+    .grid__article {
+      grid-area: article; }
+    .grid__menu {
+      grid-area: menu; }
+    .grid__header {
+      grid-area: header; } }
+
+
+/*# sourceMappingURL=main.css.map*/
