@@ -9,8 +9,6 @@ export default class Modal {
         this.title = document.querySelector(".modal__guts_inputTitle");
         this.content = document.querySelector(".modal__guts_inputContent");
         this.submit = document.querySelector(".modal__guts_submit");
-        this.modal.classList.toggle("modal__closed");
-        this.modalOverlay.classList.toggle("overlay__closed");
         this.toggleMethod(this.closeButton, this.modal, this.modalOverlay);
         this.toggleMethod(this.openButton, this.modal, this.modalOverlay);
         this.submit.addEventListener('click', this.httpPost);
@@ -18,8 +16,8 @@ export default class Modal {
 
     toggleMethod (element, modal, modalOverlay) {
         element.addEventListener("click", function() {
-            modal.classList.toggle("modal__closed");
-            modalOverlay.classList.toggle("overlay__closed");
+            modal.classList.toggle("modal__open");
+            modalOverlay.classList.toggle("overlay__open");
         });
     }
 
@@ -29,7 +27,7 @@ export default class Modal {
         .then(function (response) {
             console.log(response.status);
         });
-        this.modal.classList.toggle("modal__closed");
-        this.modalOverlay.classList.toggle("overlay__closed");
+        this.modal.classList.toggle("modal__open");
+        this.modalOverlay.classList.toggle("overlay__open");
     }    
 }
