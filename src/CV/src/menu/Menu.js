@@ -10,7 +10,7 @@ export default class Menu extends EventObserver {
 
     createMenu () {
         var ul = document.querySelector(".menu__items")
-        this.httpGet('http://localhost:8080/article').then(function(articles){
+        this.httpGet('article').then(function(articles){
             for (let article of articles) {
                 let li = document.createElement('li');
             
