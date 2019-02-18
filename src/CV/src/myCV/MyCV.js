@@ -29,8 +29,8 @@ export default class MyCV {
                 new Article(article);
             });
         })
-        this.modal = new ModalAddArticle();
-        this.modal = new ModalDeleteArticle();
+        new ModalAddArticle();
+        new ModalDeleteArticle();
     }
 
     async httpGet(theUrl){

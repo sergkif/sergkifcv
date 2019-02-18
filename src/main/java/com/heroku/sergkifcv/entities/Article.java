@@ -23,6 +23,7 @@ public class Article {
     private String title;
     @Column(name = "content")
     private String content;
+
 //    @Column(name = "image")
 //    private Object image;
 }
