@@ -1,7 +1,8 @@
 import Header from "../header/Header"
 import Menu from "../menu/Menu"
 import Article from "../article/Article"
-import Modal from "../modal/Modal"
+import ModalAddArticle from "../modalAddArticle/ModalAddArticle"
+import ModalDeleteArticle from "../modalDeleteArticle/ModalDeleteArticle"
 
 const headerElement = document.querySelector(".header");
 const menuElement = document.querySelector(".menu");
@@ -28,7 +29,8 @@ export default class MyCV {
                 new Article(article);
             });
         })
-        this.modal = new Modal();
+        this.modal = new ModalAddArticle();
+        this.modal = new ModalDeleteArticle();
     }
 
     async httpGet(theUrl){

@@ -9806,6 +9806,156 @@ function () {
 
 /***/ }),
 
+/***/ "./src/gutsDeleteArticle/GutsDeleteArticle.js":
+/*!****************************************************!*\
+  !*** ./src/gutsDeleteArticle/GutsDeleteArticle.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return GutsDeleteArticle; });
+/* harmony import */ var decko__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! decko */ "./node_modules/decko/dist/decko.js");
+/* harmony import */ var decko__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(decko__WEBPACK_IMPORTED_MODULE_0__);
+var _class;
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object['ke' + 'ys'](descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object['define' + 'Property'](target, property, desc); desc = null; } return desc; }
+
+
+var GutsDeleteArticle = (_class =
+/*#__PURE__*/
+function () {
+  function GutsDeleteArticle() {
+    _classCallCheck(this, GutsDeleteArticle);
+
+    this.select = document.querySelector(".gutsDeleteArticle");
+    this.createList(this.select);
+    this.submit = document.querySelector(".gutsDeleteArticleSubmit");
+    this.submit.addEventListener('click', this.httpDelete);
+  }
+
+  _createClass(GutsDeleteArticle, [{
+    key: "createList",
+    value: function createList(select) {
+      this.httpGet('article').then(function (articles) {
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = articles[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var article = _step.value;
+            var option = document.createElement('option');
+            option.classList.add("gutsDeleteArticle__item");
+            select.appendChild(option);
+            option.innerHTML = article.title;
+            option.dataset.artId = article.id;
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return != null) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+      });
+    }
+  }, {
+    key: "httpDelete",
+    value: function () {
+      var _httpDelete = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee() {
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.select = document.querySelector(".gutsDeleteArticle");
+                _context.next = 3;
+                return fetch("article/ + ".concat(this.select.options[this.select.selectedIndex].dataset.artId), {
+                  method: 'DELETE'
+                }).then(function (response) {
+                  console.log(response.status);
+                });
+
+              case 3:
+                this.modal = document.querySelector(".modalDeleteArticle");
+                this.modalOverlay = document.querySelector(".overlayDeleteArticle");
+                this.modal.classList.toggle("modalDeleteArticle__open");
+                this.modalOverlay.classList.toggle("overlayDeleteArticle__open");
+
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function httpDelete() {
+        return _httpDelete.apply(this, arguments);
+      }
+
+      return httpDelete;
+    }()
+  }, {
+    key: "httpGet",
+    value: function () {
+      var _httpGet = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee2(theUrl) {
+        var data;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return fetch(theUrl);
+
+              case 2:
+                data = _context2.sent;
+                return _context2.abrupt("return", data.json());
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function httpGet(_x) {
+        return _httpGet.apply(this, arguments);
+      }
+
+      return httpGet;
+    }()
+  }]);
+
+  return GutsDeleteArticle;
+}(), (_applyDecoratedDescriptor(_class.prototype, "httpDelete", [decko__WEBPACK_IMPORTED_MODULE_0__["bind"]], Object.getOwnPropertyDescriptor(_class.prototype, "httpDelete"), _class.prototype)), _class);
+
+
+/***/ }),
+
 /***/ "./src/header/Header.js":
 /*!******************************!*\
   !*** ./src/header/Header.js ***!
@@ -10049,16 +10199,16 @@ function (_EventObserver) {
 
 /***/ }),
 
-/***/ "./src/modal/Modal.js":
-/*!****************************!*\
-  !*** ./src/modal/Modal.js ***!
-  \****************************/
+/***/ "./src/modalAddArticle/ModalAddArticle.js":
+/*!************************************************!*\
+  !*** ./src/modalAddArticle/ModalAddArticle.js ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Modal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ModalAddArticle; });
 /* harmony import */ var decko__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! decko */ "./node_modules/decko/dist/decko.js");
 /* harmony import */ var decko__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(decko__WEBPACK_IMPORTED_MODULE_0__);
 var _class;
@@ -10076,30 +10226,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object['ke' + 'ys'](descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object['define' + 'Property'](target, property, desc); desc = null; } return desc; }
 
 
-var Modal = (_class =
+var ModalAddArticle = (_class =
 /*#__PURE__*/
 function () {
-  function Modal() {
-    _classCallCheck(this, Modal);
+  function ModalAddArticle() {
+    _classCallCheck(this, ModalAddArticle);
 
-    this.modal = document.querySelector(".modal");
-    this.modalOverlay = document.querySelector(".overlay");
-    this.closeButton = document.querySelector(".modal__closeButton");
-    this.openButton = document.querySelector(".openButton");
-    this.title = document.querySelector(".modal__guts_inputTitle");
-    this.content = document.querySelector(".modal__guts_inputContent");
-    this.submit = document.querySelector(".modal__guts_submit");
+    this.modal = document.querySelector(".modalAddArticle");
+    this.modalOverlay = document.querySelector(".overlayAddArticle");
+    this.closeButton = document.querySelector(".modalAddArticle__closeButton");
+    this.openButton = document.querySelector(".openButtonAddArticle");
+    this.title = document.querySelector(".gutsAddArticle__inputTitle");
+    this.content = document.querySelector(".gutsAddArticle__inputContent");
+    this.submit = document.querySelector(".gutsAddArticle__submit");
     this.toggleMethod(this.closeButton, this.modal, this.modalOverlay);
     this.toggleMethod(this.openButton, this.modal, this.modalOverlay);
     this.submit.addEventListener('click', this.httpPost);
   }
 
-  _createClass(Modal, [{
+  _createClass(ModalAddArticle, [{
     key: "toggleMethod",
     value: function toggleMethod(element, modal, modalOverlay) {
       element.addEventListener("click", function () {
-        modal.classList.toggle("modal__open");
-        modalOverlay.classList.toggle("overlay__open");
+        modal.classList.toggle("modalAddArticle__open");
+        modalOverlay.classList.toggle("overlayAddArticle__open");
       });
     }
   }, {
@@ -10127,8 +10277,8 @@ function () {
                 });
 
               case 2:
-                this.modal.classList.toggle("modal__open");
-                this.modalOverlay.classList.toggle("overlay__open");
+                this.modal.classList.toggle("modalAddArticle__open");
+                this.modalOverlay.classList.toggle("overlayAddArticle__open");
 
               case 4:
               case "end":
@@ -10146,8 +10296,59 @@ function () {
     }()
   }]);
 
-  return Modal;
+  return ModalAddArticle;
 }(), (_applyDecoratedDescriptor(_class.prototype, "httpPost", [decko__WEBPACK_IMPORTED_MODULE_0__["bind"]], Object.getOwnPropertyDescriptor(_class.prototype, "httpPost"), _class.prototype)), _class);
+
+
+/***/ }),
+
+/***/ "./src/modalDeleteArticle/ModalDeleteArticle.js":
+/*!******************************************************!*\
+  !*** ./src/modalDeleteArticle/ModalDeleteArticle.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ModalDeleteArticle; });
+/* harmony import */ var _gutsDeleteArticle_GutsDeleteArticle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../gutsDeleteArticle/GutsDeleteArticle */ "./src/gutsDeleteArticle/GutsDeleteArticle.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var ModalDeleteArticle =
+/*#__PURE__*/
+function () {
+  function ModalDeleteArticle() {
+    _classCallCheck(this, ModalDeleteArticle);
+
+    this.modal = document.querySelector(".modalDeleteArticle");
+    this.modalOverlay = document.querySelector(".overlayDeleteArticle");
+    this.closeButton = document.querySelector(".modalDeleteArticle__closeButton");
+    this.openButton = document.querySelector(".openButtonDeleteArticle");
+    this.toggleMethod(this.closeButton, this.modal, this.modalOverlay);
+    this.toggleMethod(this.openButton, this.modal, this.modalOverlay);
+    this.guts = new _gutsDeleteArticle_GutsDeleteArticle__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  }
+
+  _createClass(ModalDeleteArticle, [{
+    key: "toggleMethod",
+    value: function toggleMethod(element, modal, modalOverlay) {
+      element.addEventListener("click", function () {
+        modal.classList.toggle("modalDeleteArticle__open");
+        modalOverlay.classList.toggle("overlayDeleteArticle__open");
+      });
+    }
+  }]);
+
+  return ModalDeleteArticle;
+}();
+
 
 
 /***/ }),
@@ -10165,7 +10366,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../header/Header */ "./src/header/Header.js");
 /* harmony import */ var _menu_Menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../menu/Menu */ "./src/menu/Menu.js");
 /* harmony import */ var _article_Article__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../article/Article */ "./src/article/Article.js");
-/* harmony import */ var _modal_Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modal/Modal */ "./src/modal/Modal.js");
+/* harmony import */ var _modalAddArticle_ModalAddArticle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modalAddArticle/ModalAddArticle */ "./src/modalAddArticle/ModalAddArticle.js");
+/* harmony import */ var _modalDeleteArticle_ModalDeleteArticle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modalDeleteArticle/ModalDeleteArticle */ "./src/modalDeleteArticle/ModalDeleteArticle.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -10175,6 +10377,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 
@@ -10232,7 +10435,8 @@ function () {
         new _article_Article__WEBPACK_IMPORTED_MODULE_2__["default"](article);
       });
     });
-    this.modal = new _modal_Modal__WEBPACK_IMPORTED_MODULE_3__["default"]();
+    this.modal = new _modalAddArticle_ModalAddArticle__WEBPACK_IMPORTED_MODULE_3__["default"]();
+    this.modal = new _modalDeleteArticle_ModalDeleteArticle__WEBPACK_IMPORTED_MODULE_4__["default"]();
   }
 
   _createClass(MyCV, [{

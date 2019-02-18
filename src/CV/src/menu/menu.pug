@@ -1,3 +1,8 @@
+include ../modalAddArticle/modalAddArticle
+include ../modalDeleteArticle/modalDeleteArticle
+
 mixin menu()
     .menu
         ul.menu__items menu
+        +modalAddArticle()
+        +modalDeleteArticle()

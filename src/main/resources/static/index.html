@@ -15,19 +15,32 @@
       <div class="grid__menu">
         <div class="menu">
           <ul class="menu__items">menu</ul>
-        </div>
-        <div class="overlay"></div>
-        <div class="modal">
-          <button class="modal__closeButton">Close</button>
-          <div class="modal__guts">
-            <div class="modal__guts_title">Enter title</div>
-            <textarea class="modal__guts_inputTitle"></textarea>
-            <div class="modal__guts_content">Enter content</div>
-            <textarea class="modal__guts_inputContent"></textarea>
-            <button class="modal__guts_submit">Submit</button>
+          <div class="overlayAddArticle"></div>
+          <div class="modalAddArticle">
+            <button class="modalAddArticle__closeButton">Close</button>
+            <div class="modalAddArticle__guts">
+              <div class="gutsAddArticle">
+                <div class="gutsAddArticle__title">Enter title</div>
+                <textarea class="gutsAddArticle__inputTitle"></textarea>
+                <div class="gutsAddArticle__content">Enter content</div>
+                <textarea class="gutsAddArticle__inputContent"></textarea>
+                <button class="gutsAddArticle__submit">Submit</button>
+              </div>
+            </div>
           </div>
+          <button class="openButtonAddArticle">Add article</button>
+          <div class="overlayDeleteArticle"></div>
+          <div class="modalDeleteArticle">
+            <button class="modalDeleteArticle__closeButton">Close</button>
+            <div class="modalDeleteArticle__guts">
+              <select class="gutsDeleteArticle">
+                <option class="gutsDeleteArticle__item" value="" selected disabled hidden>Choose an article to delete</option>
+              </select>
+              <button class="gutsDeleteArticleSubmit">Submit</button>
+            </div>
+          </div>
+          <button class="openButtonDeleteArticle">Delete article</button>
         </div>
-        <button class="openButton">Add article</button>
       </div>
       <div class="grid__article">
         <div class="article">article</div>

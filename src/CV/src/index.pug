@@ -2,7 +2,6 @@ include ./header/header
 include ./footer/footer
 include ./menu/menu
 include ./article/article
-include ./modal/modal
 
 
 - var data = require('./data.json');
@@ -21,7 +20,6 @@ html(lang="en")
                 +header()
             .grid__menu
                 +menu()
-                +modal()
             .grid__article
                 +article()
             .grid__footer
