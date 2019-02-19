@@ -1,0 +1,9 @@
+include ../gutsDeleteArticle/gutsDeleteArticle
+
+mixin modalDeleteArticle()
+    .overlayDeleteArticle
+    .modalDeleteArticle
+        button.modalDeleteArticle__closeButton Close
+        .modalDeleteArticle__guts
+            +gutsDeleteArticle()
+    button.openButtonDeleteArticle Delete article

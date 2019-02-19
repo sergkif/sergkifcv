@@ -1,0 +1,10 @@
+.gutsDeleteArticle {
+    width: 60%;
+    height: 10%;
+
+    &__item {
+        &:hover {
+            background-color: rgba(141, 141, 141, 0.274)
+        }
+    }
+}

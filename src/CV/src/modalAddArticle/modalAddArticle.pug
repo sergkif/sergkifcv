@@ -1,0 +1,10 @@
+include ../gutsAddArticle/gutsAddArticle
+
+mixin modalAddArticle()
+    .overlayAddArticle
+    .modalAddArticle
+        button.modalAddArticle__closeButton Close
+        .modalAddArticle__guts
+            +gutsAddArticle()
+    button.openButtonAddArticle Add article
+    
